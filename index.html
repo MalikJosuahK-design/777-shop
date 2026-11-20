@@ -185,13 +185,28 @@ footer nav a:hover{color:#fff}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 
+<style>
+/* Startseite: Produktübersicht */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 12px;padding-top:8px}
+@media (min-width:900px){main{padding-top:64px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 36px}}
+.card{display:block;text-decoration:none;color:var(--ink);text-align:center}
+.card .tile{position:relative;aspect-ratio:1/1;background:var(--tile);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card .tile svg,.card .tile img{width:78%;height:auto;transition:transform .5s ease}
+.card:hover .tile svg,.card:hover .tile img{transform:scale(1.04)}
+.card .badges{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.card .badge{position:static}
+.badge.dark{background:var(--dark);color:#fff}
+.badge.red{background:var(--red);color:#fff}
+.card h2{font-size:10px;line-height:1.5;margin:14px 0 2px}
+.card p{margin:0;font-size:11px;letter-spacing:.08em;color:var(--muted)}
+.card .ph{position:absolute;bottom:8px;left:0;right:0;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+</style>
 <div class="banner">Drop 001 · Limitiert · Versand innerhalb von 2–3 Werktagen</div>
 
 <header class="header">
   <nav aria-label="Navigation">
-    <a href="index.html">Drop 001</a>
-    <button type="button" data-open="acc-size">Größentabelle</button>
-    <button type="button" data-open="acc-ship">Versand</button>
+    <a href="index.html">Shop All</a>
   </nav>
   <a class="logo" href="index.html" aria-label="777 Startseite"><img src="img/logo-777.png" alt="777 International" width="640" height="331"></a>
   <nav class="right" aria-label="Rechtliches">
@@ -200,144 +215,20 @@ footer nav a:hover{color:#fff}
 </header>
 
 <main>
-  <!-- STEP 1: PRODUCT -->
-  <section class="product" id="view-product" aria-label="Produkt">
-    <div class="gallery">
-      <div class="stage">
-        <span class="badge" aria-hidden="true">Limited</span>
-        <button class="arrow prev" type="button" aria-label="Vorheriges Bild" id="prev">
-          <svg viewBox="0 0 14 24" fill="none"><path d="M12 2 2 12l10 10" stroke="currentColor" stroke-width="2"/></svg>
-        </button>
-        <div class="slides" id="slides">
-          <div class="slide" aria-hidden="false"><svg viewBox="0 0 300 300" aria-label="T-Shirt Vorderseite"><use href="#tee"/><text x="150" y="132" text-anchor="middle" font-family="Montserrat,Arial Black,sans-serif" font-weight="700" font-size="34" fill="#fff">777</text></svg><span class="ph">Platzhalter · Vorderseite</span></div>
-          <div class="slide" aria-hidden="true"><svg viewBox="0 0 300 300" aria-label="T-Shirt Rückseite"><use href="#tee"/><text x="150" y="150" text-anchor="middle" font-family="Montserrat,Arial Black,sans-serif" font-weight="700" font-size="64" fill="#fff">777</text><text x="150" y="176" text-anchor="middle" font-family="Montserrat,Arial,sans-serif" font-weight="700" font-size="9" letter-spacing="4" fill="#fff">WORLDWIDE</text></svg><span class="ph">Platzhalter · Rückseite</span></div>
-          <div class="slide" aria-hidden="true"><svg viewBox="0 0 300 300" aria-label="T-Shirt Detail"><rect x="40" y="40" width="220" height="220" fill="#141414"/><text x="150" y="168" text-anchor="middle" font-family="Montserrat,Arial Black,sans-serif" font-weight="700" font-size="88" fill="#fff">777</text></svg><span class="ph">Platzhalter · Detail Print</span></div>
-        </div>
-        <button class="arrow next" type="button" aria-label="Nächstes Bild" id="next">
-          <svg viewBox="0 0 14 24" fill="none"><path d="m2 2 10 10L2 22" stroke="currentColor" stroke-width="2"/></svg>
-        </button>
-      </div>
-      <div class="thumbs" id="thumbs">
-        <button class="thumb on" type="button" aria-label="Bild 1: Vorderseite"><svg viewBox="0 0 300 300" aria-hidden="true"><use href="#tee"/></svg></button>
-        <button class="thumb" type="button" aria-label="Bild 2: Rückseite"><svg viewBox="0 0 300 300" aria-hidden="true"><use href="#tee"/><text x="150" y="160" text-anchor="middle" font-family="Montserrat,Arial Black,sans-serif" font-weight="700" font-size="64" fill="#fff">777</text></svg></button>
-        <button class="thumb" type="button" aria-label="Bild 3: Detail"><svg viewBox="0 0 300 300" aria-hidden="true"><rect x="40" y="40" width="220" height="220" fill="#141414"/></svg></button>
-      </div>
-      <div class="dots" id="dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
-    </div>
-
-    <div class="info">
-      <h1>777 Tee Black</h1>
-      <hr class="rule">
-      <div class="price"><span id="price-label">39,00 €</span><small><!--MWST-->inkl. MwSt.<!--/MWST-->, zzgl. <a href="versand.html">Versand</a></small></div>
-      <div class="stock" id="stock"><i></i><span id="stock-text">Auf Lager — Versand in 2–3 Werktagen</span></div>
-
-      <div class="opt-head"><span>Größe: <span id="size-label">bitte wählen</span></span><button class="linkbtn" type="button" id="sizechart-open">Größentabelle</button></div>
-      <div class="sizes" role="group" aria-label="Größe wählen" id="sizes">
-        <button class="size" type="button" aria-pressed="false" id="size-s">S</button>
-        <button class="size" type="button" aria-pressed="false" id="size-m">M</button>
-        <button class="size" type="button" aria-pressed="false" id="size-l">L</button>
-        <button class="size" type="button" aria-pressed="false" id="size-xl">XL</button>
-        <button class="size" type="button" aria-pressed="false" id="size-xxl" disabled title="Ausverkauft">XXL</button>
-      </div>
-
-      <div class="buy-wrap">
-        <button class="btn wide" type="button" id="buy">Jetzt kaufen</button>
-        <div class="hint" id="hint" aria-live="polite">Wenn's weg ist, ist's weg.</div>
-        <div class="paychips" aria-label="Zahlungsarten">
-          <span data-p="paypal">PayPal</span><span data-p="mollie">Karte</span><span data-p="mollie">Apple Pay</span><span data-p="mollie">Klarna</span><span data-p="mollie">Überweisung</span>
-        </div>
-      </div>
-
-      <div class="acc">
-        <details open>
-          <summary>Beschreibung</summary>
-          <div class="body">
-            <p>Limitierte Merch direkt vom Artist. Drop 001.</p>
-            <ul><li>Heavy Cotton T-Shirt, 240 g/m²</li><li>Front- &amp; Backprint</li><li>Oversized Fit</li></ul>
-          </div>
-        </details>
-        <details id="acc-size">
-          <summary>Größentabelle</summary>
-          <div class="body">
-            <p>Maße in cm, flach gemessen. Oversized Fit – für normalen Sitz eine Größe kleiner wählen.</p>
-            <div class="sc-wrap"><table>
-              <thead><tr><th>Größe</th><th>Breite</th><th>Länge</th><th>Ärmel</th></tr></thead>
-              <tbody>
-                <tr><td>S</td><td>56</td><td>70</td><td>22</td></tr>
-                <tr><td>M</td><td>58</td><td>72</td><td>23</td></tr>
-                <tr><td>L</td><td>60</td><td>74</td><td>24</td></tr>
-                <tr><td>XL</td><td>62</td><td>76</td><td>25</td></tr>
-                <tr><td>XXL</td><td>64</td><td>78</td><td>26</td></tr>
-              </tbody>
-            </table></div>
-          </div>
-        </details>
-        <details id="acc-ship">
-          <summary>Versand</summary>
-          <div class="body">
-            <p>Versand mit DHL innerhalb von 2–3 Werktagen. Die Sendungsnummer kommt per E-Mail.</p>
-            <p>Deutschland <span id="ship-de">4,90 €</span> · Österreich <span id="ship-at">12,90 €</span>. Mehr unter <a href="versand.html">Zahlung &amp; Versand</a>.</p>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- STEP 2: CHECKOUT -->
-  <section class="checkout" id="view-checkout" hidden aria-label="Kasse">
-    <button class="back" type="button" id="back">← Zurück zum Produkt</button>
-    <div class="summary">
-      <svg viewBox="0 0 300 300" aria-hidden="true"><use href="#tee"/></svg>
-      <div><b>777 Tee Black</b><span id="sum-size">Größe M</span> · 1 Stück</div>
-      <span class="sum-price" id="sum-price">39,00 €</span>
-    </div>
-
-    <form id="form" novalidate>
-      <div style="display:grid;gap:22px">
-        <h2>Kontakt</h2>
-        <fieldset>
-          <label class="full">E-Mail<input id="f-email" type="email" autocomplete="email" required></label>
-        </fieldset>
-
-        <h2>Lieferadresse</h2>
-        <fieldset>
-          <label>Vorname<input id="f-first" autocomplete="given-name" required></label>
-          <label>Nachname<input id="f-last" autocomplete="family-name" required></label>
-          <label class="full street">Straße<input id="f-street" autocomplete="address-line1" required></label>
-          <label>Hausnummer<input id="f-house" required></label>
-          <label>Adresszusatz<input id="f-extra" autocomplete="address-line2" placeholder="optional"></label>
-          <label>PLZ<input id="f-zip" autocomplete="postal-code" inputmode="numeric" required></label>
-          <label>Ort<input id="f-city" autocomplete="address-level2" required></label>
-          <label class="full">Land<select id="f-country" autocomplete="country"><option value="DE">Deutschland</option><option value="AT">Österreich</option></select></label>
-          <label class="hp" aria-hidden="true">Website<input id="f-website" tabindex="-1" autocomplete="off"></label>
-        </fieldset>
-
-        <h2>Zahlung</h2>
-        <div class="pays">
-          <label class="pay"><input type="radio" name="pay" value="paypal" id="pay-paypal" checked><span>PayPal<small>Weiter zu PayPal, Versand startet direkt</small></span></label>
-          <label class="pay"><input type="radio" name="pay" value="mollie" id="pay-mollie"><span>Karte, Apple Pay, Klarna oder Überweisung<small>Sichere Zahlung über Mollie</small></span></label>
-        </div>
-
-        <div class="totals">
-          <div><span>Zwischensumme</span><span id="sub">39,00 €</span></div>
-          <div><span id="ship-label">Versand (DHL, Deutschland)</span><span id="ship">4,90 €</span></div>
-          <div class="grand"><span>Gesamt <!--MWST-->inkl. MwSt.<!--/MWST--></span><span id="total">43,90 €</span></div>
-        </div>
-
-        <label class="legal"><input type="checkbox" id="f-agb" required><span>Ich habe die <a href="agb.html" target="_blank">AGB</a> und die <a href="widerruf.html" target="_blank">Widerrufsbelehrung</a> gelesen und akzeptiere die AGB. Hinweise zum Datenschutz findest du in der <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a>.</span></label>
-        <div class="err" id="err" aria-live="polite"></div>
-        <button class="btn wide" type="submit" id="submit">Zahlungspflichtig bestellen</button>
-      </div>
-    </form>
-  </section>
-
-  <!-- STEP 3: RÜCKKEHR NACH DER ZAHLUNG -->
-  <section class="done" id="view-done" hidden aria-label="Bestellstatus">
-    <h2 id="done-title">Danke für deine Bestellung</h2>
-    <div class="ordno" id="ordno">#777-1001</div>
-    <p id="done-text" style="margin:0;max-width:38ch">Zahlung erhalten. Die Bestellbestätigung ist unterwegs an deine E-Mail-Adresse.</p>
-    <button class="btn" type="button" id="again">Zurück zum Shop</button>
-    <p class="demo" id="demo-note" hidden>Vorschau: Hier wird nichts bezahlt. Auf der echten Seite geht es an dieser Stelle zu PayPal oder Mollie und danach hierher zurück.</p>
+  <h1 class="sr">Shop All</h1>
+  <section class="grid" aria-label="Produkte">
+    <a class="card" href="777-tee-black.html">
+      <div class="tile"><div class="badges"><span class="badge">Limited</span><span class="badge red" id="soldout" hidden>Sold out</span></div><svg viewBox="0 0 300 300" aria-hidden="true"><path d="M108 44c8 14 24 22 42 22s34-8 42-22l52 22 34 54-38 20-14-20v136H74V120l-14 20-38-20 34-54z" fill="#141414"/><path d="M108 44c8 14 24 22 42 22s34-8 42-22" fill="none" stroke="#2c2c2c" stroke-width="5"/><text x="150" y="132" text-anchor="middle" font-family="Montserrat,Arial Black,sans-serif" font-weight="700" font-size="34" fill="#fff">777</text></svg><span class="ph">Platzhalter</span></div>
+      <h2>777 Tee Black</h2><p id="price-tee">39,00 €</p>
+    </a>
+    <a class="card" href="drop-002.html">
+      <div class="tile"><div class="badges"><span class="badge dark">Coming soon</span></div><svg viewBox="0 0 300 300" aria-hidden="true"><path d="M108 44c8 14 24 22 42 22s34-8 42-22l52 22 34 54-38 20-14-20v136H74V120l-14 20-38-20 34-54z" fill="#c9c9c9"/><path d="M108 44c8 14 24 22 42 22s34-8 42-22" fill="none" stroke="#b3b3b3" stroke-width="5"/><text x="150" y="132" text-anchor="middle" font-family="Montserrat,Arial Black,sans-serif" font-weight="700" font-size="34" fill="#fff">?</text></svg><span class="ph">Platzhalter</span></div>
+      <h2>Drop 002 · Platzhalter</h2><p>Coming soon</p>
+    </a>
+    <a class="card" href="drop-003.html">
+      <div class="tile"><div class="badges"><span class="badge dark">Coming soon</span></div><svg viewBox="0 0 300 300" aria-hidden="true"><path d="M108 44c8 14 24 22 42 22s34-8 42-22l52 22 34 54-38 20-14-20v136H74V120l-14 20-38-20 34-54z" fill="#ffffff"/><path d="M108 44c8 14 24 22 42 22s34-8 42-22" fill="none" stroke="#dcdcdc" stroke-width="5"/><text x="150" y="132" text-anchor="middle" font-family="Montserrat,Arial Black,sans-serif" font-weight="700" font-size="34" fill="#c4c4c4">?</text></svg><span class="ph">Platzhalter</span></div>
+      <h2>Drop 003 · Platzhalter</h2><p>Coming soon</p>
+    </a>
   </section>
 </main>
 
@@ -353,120 +244,16 @@ footer nav a:hover{color:#fff}
   <div class="f-bottom"><span></span><span>© 2026 - 777 Worldwide</span><span>Sichere Zahlung · Versand mit DHL</span></div>
 </footer>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <g id="tee">
-      <path d="M108 44c8 14 24 22 42 22s34-8 42-22l52 22 34 54-38 20-14-20v136H74V120l-14 20-38-20 34-54z" fill="#141414"/>
-      <path d="M108 44c8 14 24 22 42 22s34-8 42-22" fill="none" stroke="#2c2c2c" stroke-width="5"/>
-    </g>
-  </defs>
-</svg>
-
 <script>
 (function(){
-  // Backend-Adresse: https://<projekt>.supabase.co/functions/v1 – leer = Vorschau ohne Zahlung
-  const API = "https://hdxwqwslujdhgvuosqef.supabase.co/functions/v1/api".startsWith("__") ? "" : "https://hdxwqwslujdhgvuosqef.supabase.co/functions/v1/api";
-
-  let PRICE = 3900, SHIP = {DE:490, AT:1290};
-  const eur = c => (c/100).toFixed(2).replace('.',',')+' €';
-  const $ = id => document.getElementById(id);
-  const views = {product:$('view-product'), checkout:$('view-checkout'), done:$('view-done')};
-  function show(v){ Object.entries(views).forEach(([k,el]) => el.hidden = k!==v); window.scrollTo({top:0,behavior:'smooth'}); }
-
-  // Galerie
-  const slides=[...document.querySelectorAll('.slide')], dots=[...$('dots').children], thumbs=[...$('thumbs').children]; let i=0;
-  function go(n){ i=(n+slides.length)%slides.length; slides.forEach((s,k)=>s.setAttribute('aria-hidden',k!==i)); dots.forEach((d,k)=>d.classList.toggle('on',k===i)); thumbs.forEach((t,k)=>t.classList.toggle('on',k===i)); }
-  thumbs.forEach((t,k)=>t.onclick=()=>go(k));
-  $('prev').onclick=()=>go(i-1); $('next').onclick=()=>go(i+1);
-  let sx=null; $('slides').addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
-  $('slides').addEventListener('touchend',e=>{ if(sx==null)return; const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40)go(i+(dx<0?1:-1)); sx=null; });
-
-  // Größen
-  let size=null; const sizeBtns=[...document.querySelectorAll('.size')];
-  sizeBtns.forEach(b=>b.onclick=()=>{ size=b.textContent; sizeBtns.forEach(x=>x.setAttribute('aria-pressed',x===b)); $('size-label').textContent=size; $('hint').classList.remove('warn'); $('hint').textContent="Wenn's weg ist, ist's weg."; });
-
-  // Live-Bestand und Preise vom Backend
-  if (API) fetch(API+'/shop').then(r=>r.json()).then(d=>{
-    PRICE=d.price_cents; SHIP=d.shipping;
-    if (d.providers) {
-      [['paypal','pay-paypal'],['mollie','pay-mollie']].forEach(([k,id])=>{ const el=$(id); if(el) el.closest('label').hidden=!d.providers[k]; });
-      const first=[...document.querySelectorAll('input[name=pay]')].find(x=>!x.closest('label').hidden);
-      if(first) first.checked=true;
-      document.querySelectorAll('.paychips [data-p]').forEach(c=>c.hidden=!d.providers[c.dataset.p]);
-    }
-    if(SHIP.DE!=null) $('ship-de').textContent=eur(SHIP.DE); if(SHIP.AT!=null) $('ship-at').textContent=eur(SHIP.AT);
-    $('price-label').textContent=eur(PRICE);
-    d.sizes.forEach(s=>{ const b=sizeBtns.find(x=>x.textContent===s.size); if(!b)return;
-      b.disabled=!s.available; b.title=s.available?'':'Ausverkauft';
-      if(!s.available && size===s.size){ size=null; b.setAttribute('aria-pressed','false'); $('size-label').textContent='bitte wählen'; } });
-    if (sizeBtns.every(b=>b.disabled)) { $('buy').disabled=true; $('buy').textContent='Ausverkauft'; $('stock').classList.add('out'); $('stock-text').textContent='Ausverkauft'; }
-  }).catch(()=>{});
-
-  $('buy').onclick=()=>{
-    if(!size){ $('hint').classList.add('warn'); $('hint').textContent='Bitte zuerst eine Größe wählen'; return; }
-    $('sum-size').textContent='Größe '+size; $('sum-price').textContent=eur(PRICE); $('sub').textContent=eur(PRICE);
-    recalc(); show('checkout');
-  };
-  $('back').onclick=()=>show('product');
-  // Akkordeons aus Kopfzeile / Link öffnen
-  function openAcc(id){ if(views.product.hidden) show('product'); const d=$(id); d.open=true; setTimeout(()=>d.scrollIntoView({block:'center',behavior:'smooth'}),60); }
-  $('sizechart-open').onclick=()=>openAcc('acc-size');
-  document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>openAcc(b.dataset.open));
-  $('again').onclick=()=>{ history.replaceState(null,'',location.pathname); show('product'); };
-
-  function recalc(){ const c=$('f-country').value, s=SHIP[c];
-    $('ship').textContent=eur(s); $('ship-label').textContent='Versand (DHL, '+$('f-country').selectedOptions[0].text+')';
-    $('total').textContent=eur(PRICE+s); return PRICE+s; }
-  $('f-country').onchange=recalc;
-
-  const err = t => { $('err').textContent=t||''; };
-  $('form').addEventListener('submit', async e=>{
-    e.preventDefault();
-    const req=[...e.target.querySelectorAll('input[required]')];
-    const bad=req.find(x=>x.type==='checkbox'?!x.checked:!x.value.trim()||(x.type==='email'&&!x.checkValidity()));
-    if(bad){ err(bad.type==='checkbox'?'Bitte AGB und Widerrufsbelehrung bestätigen.':'Bitte prüfe das Feld „'+bad.parentElement.firstChild.textContent.trim()+'“.'); bad.focus(); return; }
-    err('');
-    const provider=document.querySelector('input[name=pay]:checked').value;
-    const payload={ size, quantity:1, provider, email:$('f-email').value, first_name:$('f-first').value, last_name:$('f-last').value,
-      street:$('f-street').value, house_no:$('f-house').value, address_extra:$('f-extra').value, zip:$('f-zip').value,
-      city:$('f-city').value, country:$('f-country').value, website:$('f-website').value };
-
-    if(!API){ // Vorschau
-      showStatus({order_no:'777-1001', status:'paid'}); $('demo-note').hidden=false; return;
-    }
-    const btn=$('submit'); btn.disabled=true; btn.textContent='Weiter zur Zahlung …';
-    try{
-      const r=await fetch(API+'/checkout',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)});
-      const d=await r.json();
-      if(!r.ok) throw new Error(d.error||'Fehler');
-      location.href=d.checkout_url;
-    }catch(ex){ err(ex.message||'Verbindung fehlgeschlagen. Bitte versuch es nochmal.'); btn.disabled=false; btn.textContent='Zahlungspflichtig bestellen'; }
-  });
-
-  // Rückkehr von PayPal / Mollie: ?order=777-1001&t=…
-  function showStatus(o){
-    $('ordno').textContent='#'+o.order_no;
-    const T={
-      paid:   ['Danke für deine Bestellung','Zahlung erhalten. Die Bestellbestätigung ist unterwegs an deine E-Mail-Adresse. Sobald dein Paket rausgeht, bekommst du die Sendungsnummer.'],
-      shipped:['Dein Paket ist unterwegs','Die Sendungsnummer hast du per E-Mail bekommen.'],
-      pending:['Bestellung eingegangen','Wir warten noch auf die Bestätigung deiner Zahlung. Bei Überweisung dauert das 1–2 Werktage. Du bekommst eine E-Mail, sobald das Geld da ist.'],
-      cancelled:['Zahlung abgebrochen','Es wurde nichts abgebucht. Du kannst es einfach nochmal versuchen.'],
-    }[o.status]||['Bestellstatus','Bitte schau in deine E-Mails.'];
-    $('done-title').textContent=T[0]; $('done-text').textContent=T[1];
-    show('done');
-  }
-  const q=new URLSearchParams(location.search);
-  if(API && q.get('order') && q.get('t')){
-    const url=API+'/shop?order='+encodeURIComponent(q.get('order'))+'&t='+encodeURIComponent(q.get('t'));
-    let tries=0;
-    const poll=()=>fetch(url).then(r=>r.json()).then(o=>{
-      if(o.error) return;
-      if(q.get('cancelled') && o.status==='pending') o.status='cancelled';
-      showStatus(o);
-      if(o.status==='pending' && !q.get('cancelled') && ++tries<10) setTimeout(poll,3000); // Webhook kommt meist nach Sekunden
-    }).catch(()=>{});
-    poll();
-  } else if(q.get('error')){ show('checkout'); err('Die Zahlung hat nicht geklappt. Bitte versuch es nochmal.'); }
+  // Rückkehr von PayPal / Mollie landet auf der Startseite: weiter zur Produktseite mit Bestellstatus
+  var q=new URLSearchParams(location.search);
+  if(q.get('order')||q.get('error')){ location.replace('777-tee-black.html'+location.search); return; }
+  var API="https://hdxwqwslujdhgvuosqef.supabase.co/functions/v1/api";
+  fetch(API+'/shop').then(function(r){return r.json()}).then(function(d){
+    if(d.price_cents) document.getElementById('price-tee').textContent=(d.price_cents/100).toFixed(2).replace('.',',')+' €';
+    if(d.sizes && d.sizes.every(function(s){return !s.available})) document.getElementById('soldout').hidden=false;
+  }).catch(function(){});
 })();
 </script>
 
