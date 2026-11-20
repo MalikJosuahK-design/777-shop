@@ -5,37 +5,42 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Impressum – 777 Worldwide</title>
 <meta name="description" content="777 Worldwide – limitierte Merch direkt vom Artist.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230a0a0a%22/%3E%3Ctext x=%2250%22 y=%2268%22 font-size=%2248%22 font-family=%22Arial Black,Arial%22 font-weight=%22900%22 fill=%22%23fff%22 text-anchor=%22middle%22%3E777%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
-@font-face{font-family:"Montserrat";font-weight:800;font-display:swap;src:url(fonts/montserrat-latin-800-normal.woff2) format("woff2")}
-@font-face{font-family:"Montserrat";font-weight:900;font-display:swap;src:url(fonts/montserrat-latin-900-normal.woff2) format("woff2")}
-@font-face{font-family:"Nunito";font-weight:400;font-display:swap;src:url(fonts/nunito-latin-400-normal.woff2) format("woff2")}
-@font-face{font-family:"Nunito";font-weight:600;font-display:swap;src:url(fonts/nunito-latin-600-normal.woff2) format("woff2")}
-@font-face{font-family:"Nunito";font-weight:700;font-display:swap;src:url(fonts/nunito-latin-700-normal.woff2) format("woff2")}
-@font-face{font-family:"Nunito";font-weight:800;font-display:swap;src:url(fonts/nunito-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-weight:600;font-display:swap;src:url(fonts/montserrat-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-weight:700;font-display:swap;src:url(fonts/montserrat-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:400;font-display:swap;src:url(fonts/instrument-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:500;font-display:swap;src:url(fonts/instrument-sans-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:600;font-display:swap;src:url(fonts/instrument-sans-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:700;font-display:swap;src:url(fonts/instrument-sans-latin-700-normal.woff2) format("woff2")}
 </style>
 <style>
-:root{--ink:#0a0a0a;--muted:#5b5b60;--line:#e6e6ea;--red:#e30613}
-body{background:#fff;color:var(--ink);font-family:"Nunito",system-ui,sans-serif;font-size:15px;line-height:1.6}
-.banner{background:var(--red);color:#fff;text-align:center;font-weight:800;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding-block:7px}
-.banner a{color:#fff}
-main{max-width:680px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.home{font-family:"Montserrat","Arial Black",sans-serif;font-weight:900;font-size:40px;color:var(--ink);text-decoration:none;display:inline-block;margin-bottom:20px}
-h1{font-family:"Montserrat","Arial Black",sans-serif;font-weight:900;font-size:26px;text-transform:uppercase;margin:0 0 6px;text-wrap:balance}
-h2{font-family:"Montserrat","Arial Black",sans-serif;font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin:28px 0 6px}
+:root{--ink:#000;--dark:#1c1c1c;--muted:#6b6b6b;--line:#e3e3e3;--red:#c8261b;--display:"Montserrat","Arial Black",system-ui,sans-serif;--body:"Instrument Sans","Helvetica Neue",Arial,system-ui,sans-serif;--pad:max(20px,env(safe-area-inset-left,0px))}
+*{box-sizing:border-box}
+body{background:#fff;color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.banner{background:var(--dark);color:#fff;text-align:center;font-family:var(--display);font-weight:700;font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:13px var(--pad)}
+.banner a{color:#fff;text-decoration:none}
+.header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);display:flex;justify-content:center;padding:12px var(--pad)}
+.header img{height:52px;width:auto;display:block}
+@media (max-width:760px){.header{padding:10px var(--pad)}.header img{height:44px}}
+main{max-width:720px;margin:0 auto;padding:40px var(--pad) 72px}
+h1{font-family:var(--display);font-weight:700;font-size:18px;line-height:1.45;letter-spacing:.18em;text-transform:uppercase;margin:0 0 10px;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin:32px 0 8px}
 .lead{color:var(--muted);margin-top:0}
 a{color:var(--ink)}
 table{border-collapse:collapse;width:100%;margin:8px 0}
 th,td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
-.box{border:1.5px solid var(--ink);border-radius:12px;padding:4px 16px}
-footer{border-top:1px solid var(--line);padding:20px 16px 30px;text-align:center;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
-footer a{margin:0 8px;text-decoration:none;font-weight:700}
+.box{border:1px solid var(--ink);border-radius:8px;padding:4px 16px}
+footer{background:var(--dark);padding:34px var(--pad) 38px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 24px}
+footer a{color:rgba(255,255,255,.65);font-weight:700;font-size:13px;text-decoration:none}
+footer a:hover{color:#fff}
 </style></head>
 <body>
 <div class="banner"><a href="index.html">← Zurück zum Shop</a></div>
+<header class="header"><a href="index.html" aria-label="777 Startseite"><img src="img/logo-777.png" alt="777 International" width="640" height="331"></a></header>
 <main>
-<a class="home" href="index.html">777</a>
 <h1>Impressum</h1>
 <p class="lead">Anbieterkennzeichnung</p>
 
