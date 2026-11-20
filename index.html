@@ -191,9 +191,9 @@ footer nav a:hover{color:#fff}
 @media (min-width:900px){main{padding-top:64px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 36px}}
 .card{display:block;text-decoration:none;color:var(--ink);text-align:center}
 .card .tile{position:relative;aspect-ratio:1/1;background:var(--tile);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.card .tile svg,.card .tile img{width:78%;height:auto;transition:transform .5s ease}
-.card:hover .tile svg,.card:hover .tile img{transform:scale(1.04)}
-.card .badges{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.card .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.card:hover .tile img{transform:scale(1.04)}
+.card .badges{position:absolute;z-index:2;top:8px;left:8px;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
 .card .badge{position:static}
 .badge.dark{background:var(--dark);color:#fff}
 .badge.red{background:var(--red);color:#fff}
@@ -218,16 +218,16 @@ footer nav a:hover{color:#fff}
   <h1 class="sr">Shop All</h1>
   <section class="grid" aria-label="Produkte">
     <a class="card" href="777-tee-black.html">
-      <div class="tile"><div class="badges"><span class="badge">Limited</span><span class="badge red" id="soldout" hidden>Sold out</span></div><svg viewBox="0 0 300 300" aria-hidden="true"><path d="M108 44c8 14 24 22 42 22s34-8 42-22l52 22 34 54-38 20-14-20v136H74V120l-14 20-38-20 34-54z" fill="#141414"/><path d="M108 44c8 14 24 22 42 22s34-8 42-22" fill="none" stroke="#2c2c2c" stroke-width="5"/><text x="150" y="132" text-anchor="middle" font-family="Montserrat,Arial Black,sans-serif" font-weight="700" font-size="34" fill="#fff">777</text></svg><span class="ph">Platzhalter</span></div>
+      <div class="tile"><div class="badges"><span class="badge">Limited</span><span class="badge red" id="soldout" hidden>Sold out</span></div><img src="img/777-tee-black.jpg" alt="777 Tee Black, schwarzes T-Shirt mit 777-International-Logo auf der Brust" width="1400" height="1400" loading="lazy"></div>
       <h2>777 Tee Black</h2><p id="price-tee">39,00 €</p>
     </a>
     <a class="card" href="drop-002.html">
-      <div class="tile"><div class="badges"><span class="badge dark">Coming soon</span></div><svg viewBox="0 0 300 300" aria-hidden="true"><path d="M108 44c8 14 24 22 42 22s34-8 42-22l52 22 34 54-38 20-14-20v136H74V120l-14 20-38-20 34-54z" fill="#c9c9c9"/><path d="M108 44c8 14 24 22 42 22s34-8 42-22" fill="none" stroke="#b3b3b3" stroke-width="5"/><text x="150" y="132" text-anchor="middle" font-family="Montserrat,Arial Black,sans-serif" font-weight="700" font-size="34" fill="#fff">?</text></svg><span class="ph">Platzhalter</span></div>
-      <h2>Drop 002 · Platzhalter</h2><p>Coming soon</p>
+      <div class="tile"><div class="badges"><span class="badge dark">Coming soon</span></div><img src="img/eisherz-tee-white.jpg" alt="Eisherz Tee White, weißes T-Shirt mit gefrorenem Herz auf der Brust" width="1400" height="1400" loading="lazy"></div>
+      <h2>Eisherz Tee White</h2><p>Coming soon</p>
     </a>
     <a class="card" href="drop-003.html">
-      <div class="tile"><div class="badges"><span class="badge dark">Coming soon</span></div><svg viewBox="0 0 300 300" aria-hidden="true"><path d="M108 44c8 14 24 22 42 22s34-8 42-22l52 22 34 54-38 20-14-20v136H74V120l-14 20-38-20 34-54z" fill="#ffffff"/><path d="M108 44c8 14 24 22 42 22s34-8 42-22" fill="none" stroke="#dcdcdc" stroke-width="5"/><text x="150" y="132" text-anchor="middle" font-family="Montserrat,Arial Black,sans-serif" font-weight="700" font-size="34" fill="#c4c4c4">?</text></svg><span class="ph">Platzhalter</span></div>
-      <h2>Drop 003 · Platzhalter</h2><p>Coming soon</p>
+      <div class="tile"><div class="badges"><span class="badge dark">Coming soon</span></div><img src="img/eisherz-tee-black.jpg" alt="Eisherz Tee Black, schwarzes T-Shirt mit gefrorenem Herz auf der Brust" width="1400" height="1400" loading="lazy"></div>
+      <h2>Eisherz Tee Black</h2><p>Coming soon</p>
     </a>
   </section>
 </main>

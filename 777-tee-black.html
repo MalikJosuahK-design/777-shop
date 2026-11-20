@@ -66,7 +66,7 @@ main{max-width:1240px;margin:0 auto;padding:28px var(--pad) 72px}
 .slides{position:relative;aspect-ratio:1/1;background:var(--tile);overflow:hidden}
 .slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:opacity .35s ease}
 .slide[aria-hidden="true"]{opacity:0;pointer-events:none}
-.slide svg,.slide img{width:78%;height:auto}
+.slide img{width:100%;height:100%;object-fit:cover;display:block}
 .slide .ph{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .badge{position:absolute;top:10px;left:10px;z-index:2;background:#fff;color:var(--ink);font-family:var(--display);font-weight:700;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;padding:4px 7px 4px 8px;line-height:1.3}
 .arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;background:none;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center;z-index:3}
@@ -135,7 +135,7 @@ tr:last-child td{border-bottom:0}
 .checkout{display:flex;flex-direction:column;gap:24px}
 .back{align-self:flex-start;background:none;border:0;font-family:var(--display);font-weight:700;font-size:10px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;color:var(--ink);padding:6px 0}
 .summary{display:flex;gap:14px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:var(--radius)}
-.summary svg{width:64px;height:64px;flex:none;background:var(--tile)}
+.summary img{width:64px;height:64px;flex:none;object-fit:cover}
 .summary div{min-width:0;flex:1;color:var(--muted);font-size:13px}
 .summary b{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;display:block;color:var(--ink);margin-bottom:2px}
 .summary .sum-price{white-space:nowrap;letter-spacing:.04em}
@@ -205,24 +205,18 @@ footer nav a:hover{color:#fff}
     <div class="gallery">
       <div class="stage">
         <span class="badge" aria-hidden="true">Limited</span>
-        <button class="arrow prev" type="button" aria-label="Vorheriges Bild" id="prev">
+        <button class="arrow prev" type="button" hidden aria-label="Vorheriges Bild" id="prev">
           <svg viewBox="0 0 14 24" fill="none"><path d="M12 2 2 12l10 10" stroke="currentColor" stroke-width="2"/></svg>
         </button>
         <div class="slides" id="slides">
-          <div class="slide" aria-hidden="false"><svg viewBox="0 0 300 300" aria-label="T-Shirt Vorderseite"><use href="#tee"/><text x="150" y="132" text-anchor="middle" font-family="Montserrat,Arial Black,sans-serif" font-weight="700" font-size="34" fill="#fff">777</text></svg><span class="ph">Platzhalter · Vorderseite</span></div>
-          <div class="slide" aria-hidden="true"><svg viewBox="0 0 300 300" aria-label="T-Shirt Rückseite"><use href="#tee"/><text x="150" y="150" text-anchor="middle" font-family="Montserrat,Arial Black,sans-serif" font-weight="700" font-size="64" fill="#fff">777</text><text x="150" y="176" text-anchor="middle" font-family="Montserrat,Arial,sans-serif" font-weight="700" font-size="9" letter-spacing="4" fill="#fff">WORLDWIDE</text></svg><span class="ph">Platzhalter · Rückseite</span></div>
-          <div class="slide" aria-hidden="true"><svg viewBox="0 0 300 300" aria-label="T-Shirt Detail"><rect x="40" y="40" width="220" height="220" fill="#141414"/><text x="150" y="168" text-anchor="middle" font-family="Montserrat,Arial Black,sans-serif" font-weight="700" font-size="88" fill="#fff">777</text></svg><span class="ph">Platzhalter · Detail Print</span></div>
+          <div class="slide" aria-hidden="false"><img src="img/777-tee-black.jpg" alt="777 Tee Black, schwarzes T-Shirt mit 777-International-Logo auf der Brust" width="1400" height="1400"><span class="ph">Symbolbild</span></div>
         </div>
-        <button class="arrow next" type="button" aria-label="Nächstes Bild" id="next">
+        <button class="arrow next" type="button" hidden aria-label="Nächstes Bild" id="next">
           <svg viewBox="0 0 14 24" fill="none"><path d="m2 2 10 10L2 22" stroke="currentColor" stroke-width="2"/></svg>
         </button>
       </div>
-      <div class="thumbs" id="thumbs">
-        <button class="thumb on" type="button" aria-label="Bild 1: Vorderseite"><svg viewBox="0 0 300 300" aria-hidden="true"><use href="#tee"/></svg></button>
-        <button class="thumb" type="button" aria-label="Bild 2: Rückseite"><svg viewBox="0 0 300 300" aria-hidden="true"><use href="#tee"/><text x="150" y="160" text-anchor="middle" font-family="Montserrat,Arial Black,sans-serif" font-weight="700" font-size="64" fill="#fff">777</text></svg></button>
-        <button class="thumb" type="button" aria-label="Bild 3: Detail"><svg viewBox="0 0 300 300" aria-hidden="true"><rect x="40" y="40" width="220" height="220" fill="#141414"/></svg></button>
-      </div>
-      <div class="dots" id="dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
+      <div class="thumbs" id="thumbs" hidden><button class="thumb on" type="button" aria-label="Bild 1"></button></div>
+      <div class="dots" id="dots" aria-hidden="true" hidden><span class="on"></span></div>
     </div>
 
     <div class="info">
@@ -287,7 +281,7 @@ footer nav a:hover{color:#fff}
   <section class="checkout" id="view-checkout" hidden aria-label="Kasse">
     <button class="back" type="button" id="back">← Zurück zum Produkt</button>
     <div class="summary">
-      <svg viewBox="0 0 300 300" aria-hidden="true"><use href="#tee"/></svg>
+      <img src="img/777-tee-black.jpg" alt="" width="64" height="64">
       <div><b>777 Tee Black</b><span id="sum-size">Größe M</span> · 1 Stück</div>
       <span class="sum-price" id="sum-price">39,00 €</span>
     </div>
